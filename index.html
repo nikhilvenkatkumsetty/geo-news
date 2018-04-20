@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoNews</title>
+  <script   src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+        integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+        crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+          integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+          crossorigin=""></script>
+  <script src="leaflet-heat.js"></script>
+  <script src="js/apiCalls.js"></script>
+  <script src="js/dataParsing.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" align="center">
+      <input type="button" value="Generate GeoNews" id="generate" >
+      <div id="map" style="width: 800px; height:400px" ></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/map.js"></script>
+</body>
+</html>
