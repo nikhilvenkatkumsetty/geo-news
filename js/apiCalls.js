@@ -1,18 +1,28 @@
+let locationsArray = [];
+var heat;
+var layers = [];
+
 $(document).ready(function(){
   $('#generate').click(function(){
     getLatestGeoNews();
   });
 });
 
-function getLatestGeoNews() {
-  $.getJSON("//api.gdeltproject.org/api/v2/geo/geo?query=trump&format=geoJSON",function(data){
+function init() {
+  var input = document.getElementById("keyword").value
+  console.log(input)
+  getLatestGeoNews(input)
+}
+
+function getLatestGeoNews(input) {
+  $.getJSON("//api.gdeltproject.org/api/v2/geo/geo?query="+input+"&format=geoJSON",function(data){
     parseData(data);
     console.log(data);
   })
 }
 
+
 function parseData(data) {
-  let locationsArray = []
   for (let i = 0; i < data.features.length; i++) {
     let reversedLatLng = [
         data.features[i].geometry.coordinates[1],
@@ -21,7 +31,9 @@ function parseData(data) {
     ]
     locationsArray.push(reversedLatLng)
   }
-  console.log(locationsArray)
-  var heat = L.heatLayer(locationsArray, { radius: 15 });
+  //console.log(locationsArray)
+  heat = L.heatLayer(locationsArray, { radius: 15 });
   map.addLayer(heat);
+  console.log(layers);
 }
+
