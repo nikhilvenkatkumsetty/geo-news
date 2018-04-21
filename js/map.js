@@ -19,12 +19,8 @@ L.tileLayer(
 
 map.setZoom(2);
 
-
 function onMapClick(e) {
-  popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(map);
+  getNewsArticles(e.latlng)
 }
 
 map.on('click', onMapClick);
