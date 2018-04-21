@@ -1,3 +1,9 @@
 #map {
-    margin-top: 70px;
+    margin-top: 10px;
 }
+
+#search {
+    margin-top: 60px;
+}
+
+.hidden{display:none;}

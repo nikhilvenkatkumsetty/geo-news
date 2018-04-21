@@ -59,4 +59,13 @@ function getNearest(data, latlng) {
      }
   }
   console.log(closeArticles)
+  var txt = "";
+  if (closeArticles.length > 0) {
+    for (let i = 0; i < closeArticles.length; i++) {
+      txt += "<tr><td>"+closeArticles[i].properties.name+"</td><td>"+closeArticles[i].properties.count+"</td></tr>"
+    }
+    if(txt != ""){
+      $("#table").append(txt).removeClass("hidden");
+    }
+  }
 }
