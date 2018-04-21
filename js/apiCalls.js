@@ -1,7 +1,3 @@
-let locationsArray = [];
-var heat;
-var layers = [];
-
 $(document).ready(function(){
   $('#generate').click(function(){
     getLatestGeoNews();
@@ -10,7 +6,6 @@ $(document).ready(function(){
 
 function init() {
   var input = document.getElementById("keyword").value
-  console.log(input)
   getLatestGeoNews(input)
 }
 
@@ -21,19 +16,21 @@ function getLatestGeoNews(input) {
   })
 }
 
-
 function parseData(data) {
+  let locationsArray = [];
+  let heat = L.heatLayer(locationsArray, { radius: 15 });
   for (let i = 0; i < data.features.length; i++) {
     let reversedLatLng = [
-        data.features[i].geometry.coordinates[1],
-        data.features[i].geometry.coordinates[0],
-        data.features[i].properties.count
+      data.features[i].geometry.coordinates[1],
+      data.features[i].geometry.coordinates[0],
+      data.features[i].properties.count
     ]
     locationsArray.push(reversedLatLng)
   }
-  //console.log(locationsArray)
-  heat = L.heatLayer(locationsArray, { radius: 15 });
+  if (map.hasLayer(heat) == true) {
+    map.removeLayer(heat)
+    console.log("removed previous heatmap")
+  }
   map.addLayer(heat);
-  console.log(layers);
 }
 
