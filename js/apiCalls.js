@@ -1,22 +1,19 @@
 let heat, inputString;
 
-$(document).ready(function(){
-  $('#generate').click(function(){
-    getLatestGeoNews();
-  });
-});
-
-function init() {
+function init(initval) {
   var input = document.getElementById("keyword").value
   inputString = input;
-  getLatestGeoNews(input)
+  if (initval == 1) {
+    getLatestGeoNews(input)
+  } else if (initval == 2) {
+    simulate24hrs(input)
+  }
 }
 
 function getLatestGeoNews(input) {
   $.getJSON("//api.gdeltproject.org/api/v2/geo/geo?query="+input+"&format=geoJSON&mode=pointdata&timespan=15",function(data){
     parseData(data);
     console.log(data);
-
   })
 }
 
@@ -70,4 +67,32 @@ function getNearest(data, latlng) {
       $("#table").append(txt).removeClass("hidden");
     }
   }
+}
+
+
+function simulate24hrs(input) {
+  $.getJSON("//api.gdeltproject.org/api/v2/geo/geo?query="+input+"&format=geoJSON&mode=pointanimation",function(data){
+    //console.log(data);
+    for (let i = 0; i < data.features.length; i++) {
+      let reversedLatLng = [
+        data.features[i].geometry.coordinates[1],
+        data.features[i].geometry.coordinates[0],
+        data.features[i].properties.count
+      ]
+      setTimeout(function(){
+        generateHeatMap(reversedLatLng)
+      }, 50 * i);
+    }
+  })
+}
+
+function generateHeatMap(latlng) {
+  locationsArray = [];
+  if (latlng != null) {
+    locationsArray.push(latlng)
+    console.log(latlng)
+    heat = L.heatLayer(locationsArray, { radius: 15 });
+    map.addLayer(heat);
+  }
+
 }
