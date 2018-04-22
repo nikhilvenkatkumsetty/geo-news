@@ -1,12 +1,3 @@
-function reverseLatLng(lat, lng, count) {
-  let reversedLatLng = [
-    lng,
-    lat,
-    count
-  ]
-  return reversedLatLng
-}
-
 function init(initval) {
   var input = document.getElementById("keyword").value
   inputString = input;
@@ -17,8 +8,13 @@ function init(initval) {
   }
 }
 
-function onMapClick(e) {
-  getNewsArticles(e.latlng)
+function reverseLatLng(lat, lng, count) {
+  let reversedLatLng = [
+    lng,
+    lat,
+    count
+  ]
+  return reversedLatLng
 }
 
 function generateHeatMap(latlng) {

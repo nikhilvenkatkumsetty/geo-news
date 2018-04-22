@@ -24,7 +24,7 @@ function getNearest(data, latlng) {
       }
     }
   }
-  let txt = "";
+  var txt = "";
   $("#table tr").remove();
   if (closeArticles.length > 0) {
     txt += "<tr><th>" + "Country" + "</th><th>" + "Link" + "</th></tr>"
