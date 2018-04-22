@@ -16,7 +16,6 @@ L.tileLayer(
     },
 ).addTo(map);
 
-
 map.setZoom(2);
 
 function onMapClick(e) {
@@ -24,3 +23,4 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+

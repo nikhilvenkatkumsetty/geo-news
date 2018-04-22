@@ -20,7 +20,6 @@ function getLatestGeoNews(input) {
   })
 }
 
-
 function parseData(data) {
   let locationsArray = [];
   if (map.hasLayer(heat) == true) {
@@ -58,11 +57,14 @@ function getNearest(data, latlng) {
        }
      }
   }
-  console.log(closeArticles)
   var txt = "";
+  $("#table tr").remove();
   if (closeArticles.length > 0) {
+    txt += "<tr><th>"+"Country"+"</th><th>"+"Hit count"+"</th></tr>"
     for (let i = 0; i < closeArticles.length; i++) {
-      txt += "<tr><td>"+closeArticles[i].properties.name+"</td><td>"+closeArticles[i].properties.count+"</td></tr>"
+      let htmlParsed = closeArticles[i].properties.html.split("<br>")
+      txt += "<tr><td>"+closeArticles[i].properties.name+"</td><td>"+htmlParsed[0]+"</td></tr>"
+      //console.log(closeArticles[i].properties.html)
     }
     if(txt != ""){
       $("#table").append(txt).removeClass("hidden");
