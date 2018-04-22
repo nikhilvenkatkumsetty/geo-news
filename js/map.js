@@ -9,17 +9,9 @@ L.tileLayer(
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
       '<a href="http://mapbox.com">Mapbox</a>',
       maxZoom: 18,
+      setZoom: 2,
       id: 'mapbox.streets',
       accessToken:
           'pk.eyJ1IjoicGRlbGVhc3RhciIsImEiOiJjamE5cTQ1aDEwYjE2MzJuY3BpbGFqNHZ0In0.i9MMtdk2VGdKsLCW50qHMw',
     },
 ).addTo(map);
-
-map.setZoom(2);
-
-function onMapClick(e) {
-  getNewsArticles(e.latlng)
-}
-
-
-

@@ -1,18 +1,16 @@
-function parseData(data) {
+let heat, inputString;
+
+function displayData(data) {
   let locationsArray = [];
-  if (map.hasLayer(heat) == true) {
-    map.removeLayer(heat)
-    console.log("removed previous heatmap")
-  }
   for (let i = 0; i < data.features.length; i++) {
     locationsArray.push(reverseLatLng(
         data.features[i].geometry.coordinates[0],
         data.features[i].geometry.coordinates[1],
         data.features[i].properties.count))
   }
-  heat = L.heatLayer(locationsArray, {radius: 15});
-  map.addLayer(heat);
+  generateHeatMap(locationsArray)
 }
+
 
 function getNearest(data, latlng) {
   let closeArticles = [];
@@ -26,14 +24,13 @@ function getNearest(data, latlng) {
       }
     }
   }
-  var txt = "";
+  let txt = "";
   $("#table tr").remove();
   if (closeArticles.length > 0) {
     txt += "<tr><th>" + "Country" + "</th><th>" + "Link" + "</th></tr>"
     for (let i = 0; i < closeArticles.length; i++) {
       let htmlParsed = closeArticles[i].properties.html.split("<br>")
       txt += "<tr><td>" + closeArticles[i].properties.name + "</td><td>" + htmlParsed[0] + "</td></tr>"
-      //console.log(closeArticles[i].properties.html)
     }
     if (txt != "") {
       $("#table").append(txt).removeClass("hidden");
@@ -41,10 +38,10 @@ function getNearest(data, latlng) {
   }
 }
 
+
 function dataStream(data) {
   let locationsArray = [];
   let i = 0;
-
   function throttleDataStream() {
     setTimeout(function () {
       locationsArray.push(reverseLatLng(
@@ -62,17 +59,3 @@ function dataStream(data) {
   }
   throttleDataStream();
 }
-
-function generateHeatMap(latlng) {
-  if (map.hasLayer(simulation) == true) {
-    console.log("clearing previous")
-    map.removeLayer(simulation)
-  }
-  if (map.hasLayer(heat) == true) {
-    console.log("clearing previous")
-    map.removeLayer(heat)
-  }
-  simulation = L.heatLayer(latlng, {radius: 15});
-  map.addLayer(simulation);
-}
-

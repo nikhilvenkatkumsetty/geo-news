@@ -6,3 +6,26 @@ function reverseLatLng(lat, lng, count) {
   ]
   return reversedLatLng
 }
+
+function init(initval) {
+  var input = document.getElementById("keyword").value
+  inputString = input;
+  if (initval == 1) {
+    getLatestGeoNews(input)
+  } else if (initval == 2) {
+    simulate24Hrs(input)
+  }
+}
+
+function onMapClick(e) {
+  getNewsArticles(e.latlng)
+}
+
+function generateHeatMap(latlng) {
+  if (map.hasLayer(heat) == true) {
+    console.log("clearing previous heatmap")
+    map.removeLayer(heat)
+  }
+  heat = L.heatLayer(latlng, {radius: 15});
+  map.addLayer(heat);
+}
