@@ -1,5 +1,4 @@
 var map = L.map('map').setView([52.674024, -8.571866], 2);
-var popup = L.popup();
 
 L.tileLayer(
     'https://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicGRlbGVhc' +
@@ -22,5 +21,5 @@ function onMapClick(e) {
   getNewsArticles(e.latlng)
 }
 
-map.on('click', onMapClick);
+
 
