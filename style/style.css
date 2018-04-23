@@ -1,3 +1,7 @@
+html {
+    background-color: #e0e0e0;
+}
+
 #map {
     display: block;
     position: absolute;
@@ -14,7 +18,6 @@
     position: absolute;
     position: fixed;
     bottom: 100px;
-    margin: 0px auto;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -33,8 +36,6 @@
     text-align: center;
     font-family: "Circular Pro";
 }
-
-
 
 #table h5 {
     font-family: "Avenir Next";
@@ -60,8 +61,6 @@
     float: right;
 }
 
-
-
 #tableContainer {
     z-index: 1;
     background-color: lightcyan;
@@ -78,4 +77,90 @@
     padding-top: 0px;
     padding-left: 10px;
     position: fixed;
+    right: 31%;
+}
+
+#timeStamp {
+    position: fixed;
+    font-family: "Circular Pro";
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+body{
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+    width: 80%;
+    position: relative
+}
+
+.searchTerm {
+    float: left;
+    min-width: 50%;
+    width: 70%;
+    border: 3px solid #46bded;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchTerm:focus{
+    color: #46bded;
+}
+
+.searchButton {
+    position: absolute;
+    right: 70px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #46bded;
+    background: #46bded;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.simulateButton {
+    position: absolute;
+    right: -60px;
+    width: 120px;
+    height: 36px;
+    border: 1px solid #46bded;
+    background: #46bded;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.wrap{
+    width: 40%;
+    display: block;
+    position: absolute;
+    position: fixed;
+    bottom: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.simulateRed {
+    border: 1px solid rgba(250, 47, 70, 0.96);
+    background: rgba(250, 47, 70, 0.96);
+}
+
+.simulateBlue {
+    border: 1px solid #46bded;
+    background: #46bded;
 }

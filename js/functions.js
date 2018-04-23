@@ -33,7 +33,6 @@ function getNearest(data, latlng) {
       txt += "<tr><td><h5>" + htmlParsed[0] + "</h5><br>" +
           "<p id='left'>" + closeArticles[i].properties.name + "</p>" +
           "<p id='right'>" + "Hit Counts: " + closeArticles[i].properties.count + "</p></td></tr>"
-      //txt += "<tr><td>" + closeArticles[i].properties.name + "</td><td>" + htmlParsed[0] + "</td></tr>"
     }
     if (txt != "") {
       $("#table").append(txt).removeClass("hidden");
@@ -42,10 +41,9 @@ function getNearest(data, latlng) {
   }
 }
 
-
-
 function dataStream(data) {
   let locationsArray = [];
+  let date, time, hours;
   let i = 0;
   function throttleDataStream() {
     setTimeout(function () {
@@ -53,11 +51,13 @@ function dataStream(data) {
           data.features[i].geometry.coordinates[0],
           data.features[i].geometry.coordinates[1],
           data.features[i].properties.count))
+      date = data.features[i].properties.datetime.split("T")
       if (i % 50 == 0) {
+        $("#timeStamp").text(date[0] + " "  + date[1].slice(0, date[1].length - 1))
         generateHeatMap(locationsArray)
       }
       i++;
-      if (i < data.features.length) {
+      if (i < data.features.length && stream == true) {
         throttleDataStream();
       }
     }, 30)

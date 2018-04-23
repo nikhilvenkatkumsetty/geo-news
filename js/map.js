@@ -8,13 +8,14 @@ onload = function() {
       '3RhciIsImEiOiJjamE5cTQ1aDEwYjE2MzJuY3BpbGFqNHZ0In0.i9MMtdk2VGdKsLCW50qHMw',
       {
         maxZoom: 18,
-        setZoom: 2,
+        setZoom: 2.5,
         id: 'mapbox.streets',
         accessToken:
             'pk.eyJ1IjoicGRlbGVhc3RhciIsImEiOiJjamE5cTQ1aDEwYjE2MzJuY3BpbGFqNHZ0In0.i9MMtdk2VGdKsLCW50qHMw',
       },
   ).addTo(map);
-  map.setView([52.674024, -8.571866], 2);
+
+  map.setView([33.947, 0.6111 ], 2.5);
   document.getElementById('map').style.display = 'block';
   setTimeout(map.invalidateSize.bind(map));
   map.on('click', onMapClick);

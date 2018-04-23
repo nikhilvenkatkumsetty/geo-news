@@ -16,6 +16,8 @@
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
           integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
           crossorigin=""></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="leaflet-heat.js"></script>
   <script src="js/apiCalls.js"></script>
   <script src="js/functions.js"></script>
@@ -26,12 +28,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6" align="center">
-      <div id="search">
-        <input id="keyword" type="text">
-        <button onclick="init(1)">GeoSearch</button>
-        <button onclick="init(2)">Simulate last 24 hours</button>
+      <div class="wrap">
+        <div class="search">
+          <input type="text" class="searchTerm" id="keyword" placeholder="Type a keyword or phrto search in the worlds media...">
+          <button onclick="init(1)" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+          <button onclick="init(2)" id="simulateButton" class="simulateButton">Start Simulation</button>
+        </div>
       </div>
-      <div id="map" ></div>
+      <div id="map"></div>
+      <div>
+        <h4 id="timeStamp"></h4>
+      </div>
     </div>
     <div id="tableContainer">
       <div id="tableCloseBtn" class="hidden">
@@ -42,13 +51,8 @@
       <table id="table" class="hidden">
       </table>
     </div>
-
-
   </div>
 </div>
-
-
-<script></script>
 <script src="js/map.js"></script>
 </body>
 </html>
