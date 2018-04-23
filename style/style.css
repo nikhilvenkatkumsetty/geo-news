@@ -1,16 +1,18 @@
 #map {
     display: block;
     position: absolute;
+    position: fixed;
     top: 0px;
-    left: 40px;
-    right: 40px;
+    left: 0px;
+    right: 0px;
     bottom: 150px;
-    border: solid 3px #654;
+    z-index: -1;
 }
 
 #search {
     display: block;
     position: absolute;
+    position: fixed;
     bottom: 100px;
     margin: 0px auto;
     margin-left: auto;
@@ -22,5 +24,17 @@
 .hidden{display:none;}
 
 #table {
-    position: relative;
+    font-size: 6px;
 }
+
+#tableContainer {
+    z-index: 1;
+    background-color: lightblue;
+    max-width: 30%;
+    top: 0px;
+    right:0px;
+    position: absolute;
+    min-height: 100%;
+}
+
+

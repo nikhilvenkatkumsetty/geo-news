@@ -25,3 +25,8 @@ function generateHeatMap(latlng) {
   heat = L.heatLayer(latlng, {radius: 15});
   map.addLayer(heat);
 }
+
+function closeTable() {
+  $("#table").addClass("hidden");
+  $("#tableCloseBtn").addClass("hidden");
+}

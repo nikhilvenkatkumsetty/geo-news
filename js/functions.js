@@ -34,6 +34,7 @@ function getNearest(data, latlng) {
     }
     if (txt != "") {
       $("#table").append(txt).removeClass("hidden");
+      $("#tableCloseBtn").removeClass("hidden");
     }
   }
 }
