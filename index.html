@@ -34,8 +34,12 @@
       <div id="map" ></div>
     </div>
     <div id="tableContainer">
+      <div id="tableCloseBtn" class="hidden">
+        <img onclick="closeTable()" src="assets/x.png">
+        <h3>Articles near where you clicked</h3>
+        <hr>
+      </div>
       <table id="table" class="hidden">
-        <button id="tableCloseBtn" class="hidden" onclick="closeTable()">Close</button>
       </table>
     </div>
 
@@ -48,3 +52,6 @@
 <script src="js/map.js"></script>
 </body>
 </html>
+
+
+

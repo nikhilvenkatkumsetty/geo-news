@@ -24,17 +24,58 @@
 .hidden{display:none;}
 
 #table {
-    font-size: 6px;
+    padding: 15px;
+    margin-top: 5px;
 }
+
+#tableContainer h3 {
+    padding-left: 16px;
+    text-align: center;
+    font-family: "Circular Pro";
+}
+
+
+
+#table h5 {
+    font-family: "Avenir Next";
+    margin: 0px;
+    padding: 0px;
+    display:inline;
+
+}
+
+#table p {
+    font-family: "Avenir Next";
+    margin-top: 0px;
+    margin-bottom: 15px;
+    padding: 0px;
+    font-size: 10px;
+}
+
+#left {
+    float: left;
+}
+
+#right {
+    float: right;
+}
+
+
 
 #tableContainer {
     z-index: 1;
-    background-color: lightblue;
-    max-width: 30%;
+    background-color: lightcyan;
     top: 0px;
     right:0px;
     position: absolute;
     min-height: 100%;
+    max-width: 30%;
 }
 
-
+#tableContainer img {
+    height: 14px;
+    width: 14px;
+    padding-top: 0px;
+    padding-left: 10px;
+    position: fixed;
+}

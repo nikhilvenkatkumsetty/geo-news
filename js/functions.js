@@ -26,11 +26,14 @@ function getNearest(data, latlng) {
   }
   var txt = "";
   $("#table tr").remove();
+  console.log(data);
   if (closeArticles.length > 0) {
-    txt += "<tr><th>" + "Country" + "</th><th>" + "Link" + "</th></tr>"
     for (let i = 0; i < closeArticles.length; i++) {
       let htmlParsed = closeArticles[i].properties.html.split("<br>")
-      txt += "<tr><td>" + closeArticles[i].properties.name + "</td><td>" + htmlParsed[0] + "</td></tr>"
+      txt += "<tr><td><h5>" + htmlParsed[0] + "</h5><br>" +
+          "<p id='left'>" + closeArticles[i].properties.name + "</p>" +
+          "<p id='right'>" + "Hit Counts: " + closeArticles[i].properties.count + "</p></td></tr>"
+      //txt += "<tr><td>" + closeArticles[i].properties.name + "</td><td>" + htmlParsed[0] + "</td></tr>"
     }
     if (txt != "") {
       $("#table").append(txt).removeClass("hidden");
@@ -38,6 +41,7 @@ function getNearest(data, latlng) {
     }
   }
 }
+
 
 
 function dataStream(data) {
