@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>GeoNews</title>
-  <script   src="http://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
         integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
@@ -20,7 +18,7 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore-min.js"></script>
-  <script src="leaflet-heat.js"></script>
+  <script src="libraries/leaflet-heat.js"></script>
   <script src="js/apiCalls.js"></script>
   <script src="js/functions.js"></script>
   <script src="js/utils.js"></script>
@@ -31,7 +29,7 @@
   <div class="row">
     <div id="dataContainer" class="hidden">
       <div id="dataCloseButton">
-        <img onclick="closeData()" src="assets/x.png">
+        <img onclick="closeData()" src="assets/images/x.png">
         <h3>Articles per Country</h3>
         <hr>
       </div>
@@ -61,7 +59,7 @@
     </div>
     <div id="tableContainer">
       <div id="tableCloseBtn" class="hidden">
-        <img onclick="closeTable()" src="assets/x.png">
+        <img onclick="closeTable()" src="assets/images/x.png">
         <h3>Nearby Articles</h3>
         <hr>
       </div>

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: AvenirNormal;
+    src: url("../assets/fonts/AvenirNext-Regular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: CircularProBold;
+    src: url("../assets/fonts/CircularPro-Bold.otf") format("truetype")
+}
+
+@font-face {
+    font-family: CircularProNormal;
+    src: url("../assets/fonts/CircularPro-Book.otf") format("truetype")
+}
+
 html {
     background-color: #e0e0e0;
 }
@@ -34,18 +49,18 @@ html {
 h3 {
     padding-left: 16px;
     text-align: center;
-    font-family: "Circular Pro";
+    font-family: "CircularProBold";
 }
 
 #table h5 {
-    font-family: "Avenir Next";
+    font-family: "AvenirNormal";
     margin: 0px;
     padding: 0px;
     display:inline;
 }
 
 #table p {
-    font-family: "Avenir Next";
+    font-family: "AvenirNormal";
     margin-top: 0px;
     margin-bottom: 15px;
     padding: 0px;
@@ -82,7 +97,7 @@ h3 {
 
 #timeStamp {
     position: fixed;
-    font-family: "Circular Pro";
+    font-family: "CircularProBold";
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -211,7 +226,7 @@ body{
 }
 
 #dataTable h5, p {
-    font-family: "Avenir Next";
+    font-family: "AvenirNormal";
     margin: 0px;
     padding: 0px;
     display:inline;
