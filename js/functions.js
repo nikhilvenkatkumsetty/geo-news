@@ -8,8 +8,9 @@ function displayData(data) {
         data.features[i].geometry.coordinates[1],
         data.features[i].properties.count))
   }
+
   generateCharts(data);
-  generateHeatMap(locationsArray)
+  generateHeatMap(locationsArray);
 }
 
 
@@ -69,6 +70,7 @@ function dataStream(data) {
 
 function generateCharts(data) {
   let countryList = [];
+
   for (let i = 0; i < data.features.length; i++) {
     country = data.features[i].properties.name.split(",")
     let stringCountry = country[country.length-1].toString()

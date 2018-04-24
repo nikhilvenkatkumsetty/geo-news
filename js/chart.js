@@ -1,44 +1,60 @@
+var chart = null;
+
 function displayChart(data) {
-  let searchData = data;
-  let others = 0;
-  for (let i = 0; i < Object.keys(searchData).length; i++) {
-    if (Object.values(searchData)[i] == 1) {
-      let key = Object.keys(searchData)[i];
-      searchData = _.omit(searchData, key);
-      others++;
-    }
+  let chartData = prepareData(data);
+  tableDisplay(data);
+  var ctx = document.getElementById('chart').getContext('2d');
+  var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+  gradientStroke.addColorStop(0, "#80b6f4");
+  gradientStroke.addColorStop(1, "#f49080");
+  if (chart != null) {
+    chart.destroy();
   }
-
-
-
-
-
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  chart = new Chart(ctx, {
     type: 'doughnut',
     data: {
+      labels: Object.keys(chartData),
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3, 4, 5, 5],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
+        label: '# of Articles',
+        data: Object.values(chartData),
+        backgroundColor: gradientStroke,
+        borderColor: (1, "#ffffff"),
         borderWidth: 1
       }]
     },
+    options: {
+      legend: {
+        display: false
+      },
+      tooltips: {
+        displayColors: false,
+        bodyFontSize: 11
+        }
+      }
   });
+}
+
+function prepareData(data) {
+  let others = 0;
+  for (let i = Object.keys(data).length-1; i >= 0; i--) {
+    if (Object.values(data)[i] < 5) {
+      let key = Object.keys(data)[i];
+      data = _.omit(data, key);
+      others++;
+    }
+  }
+  data["Others"] = others;
+  return data;
+}
+
+function tableDisplay(data) {
+  $("#dataTable tr").remove();
+  let txt = ""
+  for (let i = 0; i < Object.keys(data).length-1; i++) {
+    txt += "<tr><td><h5>" + Object.keys(data)[i] + "</h5></td>" +
+        "<td><p>" + Object.values(data)[i] + "</p></td></tr>"
+  }
+  if (txt != "") {
+    $("#dataTable").append(txt)
+  }
 }

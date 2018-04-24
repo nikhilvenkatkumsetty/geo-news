@@ -29,9 +29,17 @@
 <body>
 <div class="container">
   <div class="row">
-    <div id="dataContainer">
-      <canvas id="myChart" width="300" height="400"></canvas>
+    <div id="dataContainer" class="hidden">
+      <div id="dataCloseButton">
+        <img onclick="closeData()" src="assets/x.png">
+        <h3>Articles per Country</h3>
+        <hr>
+      </div>
+      <canvas id="chart" width="600" height="600"></canvas>
       <script src="js/chart.js"></script>
+      <div class="table-wrapper">
+        <div id="dataTable"></div>
+      </div>
     </div>
     <div class="col-md-6" align="center">
       <div class="wrap">
@@ -43,10 +51,9 @@
           <button onclick="init(2)" id="simulateButton" class="simulateButton">Start Simulation</button>
         </div>
       </div>
-      <div id="chartButton">
-        <button onclick="generateCharts()">Generate Charts</button>
+      <div id="chartButton" class="hidden">
+        <a onclick="showCharts()"><p>Generate Charts <i class="fa fa-chart"></i></p></a>
       </div>
-
       <div id="map"></div>
       <div>
         <h4 id="timeStamp"></h4>
@@ -55,7 +62,7 @@
     <div id="tableContainer">
       <div id="tableCloseBtn" class="hidden">
         <img onclick="closeTable()" src="assets/x.png">
-        <h3>Articles near where you clicked</h3>
+        <h3>Nearby Articles</h3>
         <hr>
       </div>
       <table id="table" class="hidden">

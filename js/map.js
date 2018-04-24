@@ -15,11 +15,14 @@ onload = function() {
       },
   ).addTo(map);
 
+
   map.setView([33.947, 0.6111 ], 2.5);
   document.getElementById('map').style.display = 'block';
   setTimeout(map.invalidateSize.bind(map));
   map.on('click', onMapClick);
 }
+
+
 
 function onMapClick(e) {
   getNewsArticles(e.latlng)

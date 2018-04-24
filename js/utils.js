@@ -5,20 +5,17 @@ function init(initval) {
   inputString = input;
   if (initval == 1) {
     getLatestGeoNews(input)
+    $("#chartButton").removeClass("hidden");
   } else if (initval == 2) {
     if (stream == false) {
       stream = true
       simulate24Hrs(input)
-      $('#simulateButton').text("Stop Simulation");
-      $('#simulateButton').removeClass("simulateBlue");
-      $('#simulateButton').addClass("simulateRed");
+      $('#simulateButton').text("Stop Simulation").removeClass("simulateBlue").addClass("simulateRed");
       $("#timeStamp").removeClass("hidden");
     } else if (stream == true) {
       stream = false
       clearAll();
-      $('#simulateButton').removeClass("simulateRed");
-      $('#simulateButton').addClass("simulateBlue");
-      $('#simulateButton').text("Start Simulation")
+      $('#simulateButton').text("Start Simulation").removeClass("simulateRed").addClass("simulateBlue");
     }
   }
 }
@@ -46,6 +43,15 @@ function closeTable() {
   $("#tableCloseBtn").addClass("hidden");
 }
 
+function closeData() {
+  $("#dataContainer").addClass("hidden");
+  $("#dataCloseButton").addClass("hidden");
+}
+
+function showCharts() {
+  $("#dataContainer").removeClass("hidden");
+  $("#dataCloseButton").removeClass("hidden");
+}
 
 function clearAll() {
   if (map.hasLayer(heat) == true) {
