@@ -164,3 +164,28 @@ body{
     border: 1px solid #46bded;
     background: #46bded;
 }
+
+#dataContainer {
+    z-index: 1;
+    background-color: lightcyan;
+    top: 0px;
+    left:0px;
+    position: absolute;
+    min-height: 100%;
+    max-width: 30%;
+}
+
+#chartButton {
+    display: block;
+    position: absolute;
+    position: fixed;
+    bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+#dataContainer {
+    display:none;
+}

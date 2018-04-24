@@ -18,6 +18,8 @@
           crossorigin=""></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore-min.js"></script>
   <script src="leaflet-heat.js"></script>
   <script src="js/apiCalls.js"></script>
   <script src="js/functions.js"></script>
@@ -27,6 +29,10 @@
 <body>
 <div class="container">
   <div class="row">
+    <div id="dataContainer">
+      <canvas id="myChart" width="300" height="400"></canvas>
+      <script src="js/chart.js"></script>
+    </div>
     <div class="col-md-6" align="center">
       <div class="wrap">
         <div class="search">
@@ -37,6 +43,10 @@
           <button onclick="init(2)" id="simulateButton" class="simulateButton">Start Simulation</button>
         </div>
       </div>
+      <div id="chartButton">
+        <button onclick="generateCharts()">Generate Charts</button>
+      </div>
+
       <div id="map"></div>
       <div>
         <h4 id="timeStamp"></h4>

@@ -8,6 +8,7 @@ function displayData(data) {
         data.features[i].geometry.coordinates[1],
         data.features[i].properties.count))
   }
+  generateCharts(data);
   generateHeatMap(locationsArray)
 }
 
@@ -63,4 +64,22 @@ function dataStream(data) {
     }, 30)
   }
   throttleDataStream();
+}
+
+
+function generateCharts(data) {
+  let countryList = [];
+  for (let i = 0; i < data.features.length; i++) {
+    country = data.features[i].properties.name.split(",")
+    let stringCountry = country[country.length-1].toString()
+    if (stringCountry.charAt(0) == " ") {
+      stringCountry = stringCountry.slice(1)
+    }
+    countryList.push(stringCountry)
+  }
+  let occurrences = countryList.reduce(function(country, count) {
+    country[count] = (country[count] || 0) + 1;
+    return country;
+  }, {});
+  displayChart(occurrences)
 }
