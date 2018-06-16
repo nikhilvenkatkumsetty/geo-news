@@ -1,14 +1,14 @@
 var chart = null;
 
 function displayChart(data) {
-  let chartData = prepareData(data);
+  let chartData = prepareData(data);  // data prepared
   tableDisplay(data);
   var ctx = document.getElementById('chart').getContext('2d');
   var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
   gradientStroke.addColorStop(0, "#80b6f4");
   gradientStroke.addColorStop(1, "#f49080");
   if (chart != null) {
-    chart.destroy();
+    chart.destroy();  // destroys previous chart
   }
   chart = new Chart(ctx, {
     type: 'doughnut',
@@ -37,7 +37,7 @@ function displayChart(data) {
 function prepareData(data) {
   let others = 0;
   for (let i = Object.keys(data).length-1; i >= 0; i--) {
-    if (Object.values(data)[i] < 5) {
+    if (Object.values(data)[i] < 5) {  // Any country with value below 5 put into 'Others' on chart
       let key = Object.keys(data)[i];
       data = _.omit(data, key);
       others++;

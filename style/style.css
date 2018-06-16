@@ -19,7 +19,6 @@ html {
 
 #map {
     display: block;
-    position: absolute;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -30,7 +29,6 @@ html {
 
 #search {
     display: block;
-    position: absolute;
     position: fixed;
     bottom: 100px;
     margin-left: auto;
@@ -39,7 +37,9 @@ html {
     right: 0;
 }
 
-.hidden{display:none;}
+.hidden {
+    display:none;
+}
 
 #table {
     padding: 15px;
@@ -220,7 +220,7 @@ body{
     left: 0;
     right: 0;
     background-color: #eaeaea;
-    padding-left: 20%;
+    padding-left: 10%;
     margin-top: 20%;
     padding-top: 5%;
 }
@@ -232,8 +232,29 @@ body{
     display:inline;
 }
 
+#dataTable p {
+    font-family: "AvenirNormal";
+}
+
 #dataTable h5 {
-    margin-right: 10px;
+    font-family: "CircularProBold";
+}
+
+
+#dataTable tr {
+    width: inherit;
+
+}
+
+
+#dataTable {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#dataTable td {
+    border-bottom: 1px solid #fefefe;
+    padding: 3px;
 }
 
 #dataContainer h3 {
